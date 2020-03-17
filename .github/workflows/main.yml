@@ -24,8 +24,8 @@ jobs:
       uses: LucaFeger/action-maven-cli@1.1.0
       with:
         args: clean install
-
     - name: Google login
+      id: gcloud
       uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
       with:
         version: '281.0.0'
@@ -35,3 +35,6 @@ jobs:
     - run: |
         mkdir "dependency"
         (cd dependency || exit; jar -xf ../target/*.jar)
+        export VERSION=$(xmllint --xpath "//*[local-name()='project']/*[local-name()='version']/text()" pom.xml)
+        echo ${{ steps.gcloud.outputs.username }}
+        echo ${{ steps.gcloud.outputs.password }}
