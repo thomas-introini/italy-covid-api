@@ -34,4 +34,4 @@ jobs:
         export_default_credentials: true
     - run: |
         mkdir "dependency"
-        (cd dependency || exit; jar -xf ../*.jar)
+        (cd dependency || exit; jar -xf ../target/*.jar)
