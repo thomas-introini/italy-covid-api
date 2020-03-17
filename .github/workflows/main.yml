@@ -32,4 +32,4 @@ jobs:
         service_account_email: ${{ secrets.sa_email }}
         service_account_key: ${{ secrets.sa_key }}
         export_default_credentials: true
-      run: gcloud info
+    - run: gcloud info
