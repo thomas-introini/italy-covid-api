@@ -36,7 +36,7 @@ jobs:
         mkdir "dependency"
         (cd dependency || exit; jar -xf ../target/*.jar)
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: eu.gcr.io/covid-270517/covid-cpc-api
         username: ${{ steps.gcloud.outputs.username }}
